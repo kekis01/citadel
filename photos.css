@@ -8,8 +8,8 @@ header {
 }
 
 .site-header {
-    border-bottom: 1px solid whitesmoke;
     display: flex;
+    border-bottom: 1px solid whitesmoke;
     justify-content: space-between;
     align-items: center;
 }
@@ -61,4 +61,83 @@ header {
     text-align: center;
     height: 50px;
     width: 150px;
-  }
+}
+
+footer {
+    height: 440px;
+    color: whitesmoke;
+}
+
+.site-footer {
+    border-top: 1px solid whitesmoke;
+}
+
+.site-footer__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    /*border: 1px solid blue;*/
+    margin-top: 80px;
+    margin-right: 125px;
+}
+
+.nav__column {
+    /*border: 1px solid whitesmoke;*/
+    padding: 10px;
+    margin-right: 100px;
+}
+
+.info {
+    width: 200px;
+}
+
+.footer__nav-title {
+    text-align: left;
+    padding-left: 0;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.nav__footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav__footer li {
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.nav__footer a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.special {
+    line-height: 1.8;
+}
+
+.brand__footer {
+    position: absolute;
+    left: 150px;
+    margin-top: 90px;
+    display: inline-block;
+}
+
+.citadel_logo {
+    position: absolute;
+    left: 340px;
+    margin-top: 125px;
+    height: 50px;
+    display: inline-block;
+}
+
+.photos {
+    height: 1000px;
+}
