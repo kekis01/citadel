@@ -294,3 +294,8 @@ footer {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.main_text a {
+    text-decoration: none;
+    color: whitesmoke;
+}
