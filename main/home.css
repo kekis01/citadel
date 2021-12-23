@@ -303,7 +303,7 @@ footer {
 }
 
 .more_news {
-    width: 300px;
+    width: 303px;
     height: 30px;
     margin-left: calc(50% - 280px/2 - 5px);
 
@@ -315,6 +315,11 @@ footer {
     text-align: center;
     /*border: 1px solid red;*/
     cursor: pointer;
+}
+
+.more_news a {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 .news_tick {
