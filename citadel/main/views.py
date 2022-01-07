@@ -18,8 +18,8 @@ def news(request):
     return render(request, 'home/news.html')
 
 
-def article(request):
-    return render(request, 'home/article.html')
+def article(request, artid):
+    return render(request, f'home/article{artid}.html')
 
 
 def photos(request):
