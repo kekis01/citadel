@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citadel - Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/home.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrapper site-header__wrapper">
+            <a href="{% url 'Citadel' %}" class="brand"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V120H120V0H0ZM65.8077 96.1363C43.346 96.1363 26.4243 80.0033 26.4243 60.0146C26.4336 51.8072 29.3599 43.8702 34.6807 37.6211H43.1805L26.4243 23.8637C32.541 26.1921 39.0308 27.3865 45.5757 27.3882C50.0381 27.3917 54.4833 26.8356 58.8073 25.7331H58.9631C64.4874 24.3895 70.2533 24.3895 75.7777 25.7331H75.8361C78.6693 26.4363 81.3896 27.5343 83.9172 28.9947C85.1148 29.6763 86.3611 30.426 87.2276 31.0394L80.675 48.9249L79.9546 45.6633L79.8377 45.6049C75.7994 42.5171 70.862 40.8348 65.7785 40.8146C64.9606 40.8146 64.1428 40.8146 63.3542 40.9412C52.7026 42.0024 44.9039 49.9862 44.9039 60.0146C44.9039 70.7245 53.9099 79.2146 65.7785 79.2146C70.9032 79.1128 75.862 77.3803 79.9351 74.2686L80.7043 71.0751L87.2568 88.9899C80.8698 93.4686 73.8596 96.1363 65.8077 96.1363Z" fill="white"/>
+                </svg></a>
+            <nav class="nav">
+                <ul class="nav__wrapper">
+                    <li class="nav__item"><a href="{% url 'news' %}">НОВОСТИ</a></li>
+                    <li class="nav__item"><a href="{% url 'media' %}">МЕДИА</a></li>
+                    <li class="nav__item"><a href="{% url 'tournaments' %}">ТУРНИРЫ</a></li>
+                    <li class="nav__item"><a href="{% url 'shop' %}">МАГАЗИН</a></li>
+                    <li class="nav__item"><a href="{% url 'info' %}">О НАС</a></li>
+                </ul>
+            </nav>
+        </div>
+        {% if request.user.is_authenticated %}
+        <p class="block">{{ user.username }} <button type="button" class="block" onclick="window.location.href='{% url 'logout' %}'">Выйти</button></p>
+        {% else %}
+        <button type="button" class="block" onclick="window.location.href='{% url 'login' %}'">ВОЙТИ</button>
+        {% endif %}
+    </header>
+
+    <main class="site-main__home">
+        <section class="site-citadel_logo">
+            <img class="citadel_logo-main" src="../../static/css/img/citadel_logo.png">
+            <div class="welcome_title">WELCOME TO CYBERSPORT</div>
+            <svg class="tick-1" width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.50008 24.6L0 0C15.6032 12.1119 24.3698 19.1097 40.3152 34.8C55.6873 18.9201 64.4124 11.9898 80 0L77.5001 24.6C62.5319 35.3773 54.3243 42.678 40.3152 60C25.6868 42.7161 17.3938 35.3945 2.50008 24.6Z" fill="url(#paint0_linear_272_1634)"/>
+                <defs>
+                <linearGradient id="paint0_linear_272_1634" x1="0" y1="0" x2="611.623" y2="1188.62" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#CC0202"/>
+                <stop offset="1" stop-color="#FF0000"/>
+                </linearGradient>
+                </defs>
+            </svg>
+            <svg class="tick-2" width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.50008 24.6L0 0C15.6032 12.1119 24.3698 19.1097 40.3152 34.8C55.6873 18.9201 64.4124 11.9898 80 0L77.5001 24.6C62.5319 35.3773 54.3243 42.678 40.3152 60C25.6868 42.7161 17.3938 35.3945 2.50008 24.6Z" fill="url(#paint0_linear_272_1635)"/>
+                <defs>
+                <linearGradient id="paint0_linear_272_1635" x1="0" y1="0" x2="611.623" y2="1188.62" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#CC0202"/>
+                <stop offset="1" stop-color="#FF0000"/>
+                </linearGradient>
+                </defs>
+            </svg>
+        </section>
+        <section class="site-citadel_news">
+            <div class="news_title">НОВОСТИ</div>
+            <div class="main_news-box">
+                <img class="main_news" src="../../static/css/img/spirit.png">
+            </div>
+            <div class="site-news__wrapper">
+                <nav class="nav_news">
+                    <ul class="nav__wrapper-news">
+                        <li class="nav__item-news active" onclick="hiddenClick()">ВСЁ</li>
+                        <li class="nav__item-news" onclick="hiddenClick('cs-go')">CS:GO</li>
+                        <li class="nav__item-news" onclick="hiddenClick('dota-2')">DOTA 2</li>
+                        <li class="nav__item-news" onclick="hiddenClick('fifa')">FIFA</li>
+                        <li class="nav__item-news" onclick="hiddenClick('lol')">LOL</li>
+                        <li class="nav__item-news" onclick="hiddenClick('event')">СОБЫТИЯ</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+                <figure class="gallery__item gallery__item--1 cs-go all" id="cs-go" value="cs-go">
+                    <img src="../../static/css/img/colizeum.jpg" class="gallery__img" alt="Image 1">
+                    <div class="description">
+                        <div class="date__description">Сегодня</div>
+                        <figcaption><a href="#">COLIZEUM CUP по CS:GO в формате 2х2</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--2 dota-2 all" id="dota-2" value="dota-2">
+                    <img src="../../static/css/img/urfu.jpg" class="gallery__img" alt="Image 2">
+                    <div class="description">
+                        <div class="date__description">Вчера</div>
+                        <figcaption><a href="#">Результаты UrFU eSports League 2021 по Dota 2</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--3 event all" id="event" value="event">
+                    <img src="../../static/css/img/rede.jpg" class="gallery__img" alt="Image 3">
+                    <div class="description">
+                        <div class="date__description">16.05.2021</div>
+                        <figcaption><a href="#">Партнеры нашего супер мерча — RENE BASE</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--4 lol all" id="lol" value="lol">
+                    <img src="../../static/css/img/lol.jpg" class="gallery__img" alt="Image 4">
+                    <div class="description">
+                        <div class="date__description">28.04.2021</div>
+                        <figcaption><a href="#">Покоряем новые дисциплины! Формируем состав по League of Le...</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--5 event all" id="event" value="event">
+                    <img src="../../static/css/img/pro.jpg" class="gallery__img" alt="Image 5">
+                    <div class="description">
+                        <div class="date__description">29.01.2021</div>
+                        <figcaption><a href="#">Самое время ворваться на турнир Кибер PROдвижение с сочным при...</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--6 cs-go all" id="cs-go" value="cs-go">
+                    <img src="../../static/css/img/citadelgo.jpg" class="gallery__img" alt="Image 6">
+                    <div class="description">
+                        <div class="date__description">22.04.2020</div>
+                        <figcaption><a href="#">Для тех, кто дома CITADEL организует турнир по CS: GO совме...</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--7 event all" id="event" value="event">
+                    <img src="../../static/css/img/inmt.jpg" class="gallery__img" alt="Image 7">
+                    <div class="description">
+                        <div class="date__description">09.11.2020</div>
+                        <figcaption><a href="#">Союз студентов ИНМТ УрФУ совместно с CITADEL запускает...</a></figcaption>
+                    </div>
+                </figure>
+                <figure class="gallery__item gallery__item--8 event all" id="event" value="event">
+                    <img src="../../static/css/img/pekus.jpg" class="gallery__img" alt="Image 8">
+                    <div class="description">
+                        <div class="date__description">01.09.2020</div>
+                        <figcaption><a href="#">Приветствуем первокурсников и поздравляем студентов всех...</a></figcaption>
+                    </div>
+                </figure>
+            </div>
+            <div class="more_news">
+                <a href="{% url 'news' %}">
+                    БОЛЬШЕ ИНФОРМАЦИИ
+                    <svg class="news_tick" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.92 15.5L0 16C2.42238 12.8794 3.82193 11.126 6.96 7.93696C3.78403 4.86254 2.39796 3.11752 -6.99382e-07 0L4.92 0.499981C7.07545 3.49361 8.53561 5.13513 12 7.93696C8.54323 10.8626 7.07889 12.5212 4.92 15.5Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <section class="site-citadel_disciplines">
+            <div class="disciplines_title">ДИСЦИПЛИНЫ</div>
+            <div class="main-content_disciplines">
+                <figure class="gallery__item_disciplines gallery__item--1">
+                    <img src="../../static/css/img/csgo.jpg" class="gallery_img" alt="Image 1">
+                    <div class="gallery_img-title">Counter-Strike: Global Offensive</div>
+                </figure>
+                <figure class="gallery__item_disciplines gallery__item--2">
+                    <img src="../../static/css/img/dota2.jpg" class="gallery_img" alt="Image 2">
+                    <div class="gallery_img-title">Dota 2</div>
+                </figure>
+                <figure class="gallery__item_disciplines gallery__item--3">
+                    <img src="../../static/css/img/fifa.png" class="gallery_img" alt="Image 3">
+                    <div class="gallery_img-title">FIFA</div>
+                </figure>
+                <figure class="gallery__item_disciplines gallery__item--4">
+                    <img src="../../static/css/img/league.jpg" class="gallery_img" alt="Image 4">
+                    <div class="gallery_img-title">League of Legends</div>
+                </figure>
+        </section>
+        <section class="site-citadel_media">
+            <div class="media_title">МЕДИА</div>
+            <div class="main_media">
+                <svg class="play" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="55" fill="#0E0E10" fill-opacity="0.6"/>
+                    <path d="M94.375 60L42.8125 89.7696L42.8125 30.2304L94.375 60Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="main-content_media">
+                <figure class="gallery__item gallery__item--1">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 1">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239056">CS:GO | UN4GiVE vs Valhalla (0-3) | Grand final | UrFU Esp...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">4535 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--2">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 2">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239052">CS:GO | CLAY vs Valhalla (0-2) | UrFU Esports League 2021 | b...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">1523 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--3">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 3">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239050">CS:GO | team103 vs un4give (0-2) | UrFU Esports League 2...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">1656 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--4">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 4">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239048">CS:GO | CLAY vs 10avgteam (2-0) | UrFU Esports League 2021 | ...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">2355 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--5">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 5">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239040">CS:GO | БГМУ vs Inference ESports (2-0) | UrFU Esports ...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">2120 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--6">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 6">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239064">Интервью игрока команды «Уральский гуль» по Dota 2...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">1200 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--7">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 7">
+                    <div class="description">
+                        <figcaption><a href="https://vk.com/video-172154907_456239063">Интервью игрока команды Valhalla Михаила «wayzed...</a></figcaption>
+                        <div class="date__description_media">7 месяцев назад</div>
+                        <div class="views__description_media">1449 просмотров</div>
+                    </div>
+                  </figure>
+                  <figure class="gallery__item gallery__item--8">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 8">
+                    <div class="description">
+                        <figcaption><a href="#">Интервью с менеджером команды Valhalla</a></figcaption>
+                        <div class="date__description_media">5 месяцев назад</div>
+                        <div class="views__description_media">1689 просмотров</div>
+                    </div>
+                  </figure>
+            </div>
+            <div class="more_video">
+                <a href="{% url 'video' %}">
+                    БОЛЬШЕ ВИДЕО
+                    <svg class="news_tick" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.92 15.5L0 16C2.42238 12.8794 3.82193 11.126 6.96 7.93696C3.78403 4.86254 2.39796 3.11752 -6.99382e-07 0L4.92 0.499981C7.07545 3.49361 8.53561 5.13513 12 7.93696C8.54323 10.8626 7.07889 12.5212 4.92 15.5Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <section class="site-citadel_partners">
+            <div class="partners_title">НАШИ ПАРТНЁРЫ</div>
+            <div class="main-content_partners">
+                <figure class="gallery__item_partners gallery__item--1">
+                    <img src="../../static/css/img/urfu.png" class="gallery__img-partners" alt="Image 1">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--2">
+                    <img src="../../static/css/img/kcentr.png" class="gallery__img-partners" alt="Image 2">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--3">
+                    <img src="../../static/css/img/federation.png" class="gallery__img-partners" alt="Image 3">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--4">
+                    <img src="../../static/css/img/colizeum.png" class="gallery__img-partners" alt="Image 4">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--5">
+                    <img src="../../static/css/img/rostelekom.png" class="gallery__img-partners" alt="Image 5">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--6">
+                    <img src="../../static/css/img/dvorec.png" class="gallery__img-partners" alt="Image 6">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--7">
+                    <img src="../../static/css/img/burokrat.png" class="gallery__img-partners" alt="Image 7">
+                  </figure>
+                  <figure class="gallery__item_partners gallery__item--8">
+                    <img src="../../static/css/img/sitilink.png" class="gallery__img-partners" alt="Image 8">
+                  </figure>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer_logos">
+        <a href="#" class="brand__footer"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V120H120V0H0ZM65.8077 96.1363C43.346 96.1363 26.4243 80.0033 26.4243 60.0146C26.4336 51.8072 29.3599 43.8702 34.6807 37.6211H43.1805L26.4243 23.8637C32.541 26.1921 39.0308 27.3865 45.5757 27.3882C50.0381 27.3917 54.4833 26.8356 58.8073 25.7331H58.9631C64.4874 24.3895 70.2533 24.3895 75.7777 25.7331H75.8361C78.6693 26.4363 81.3896 27.5343 83.9172 28.9947C85.1148 29.6763 86.3611 30.426 87.2276 31.0394L80.675 48.9249L79.9546 45.6633L79.8377 45.6049C75.7994 42.5171 70.862 40.8348 65.7785 40.8146C64.9606 40.8146 64.1428 40.8146 63.3542 40.9412C52.7026 42.0024 44.9039 49.9862 44.9039 60.0146C44.9039 70.7245 53.9099 79.2146 65.7785 79.2146C70.9032 79.1128 75.862 77.3803 79.9351 74.2686L80.7043 71.0751L87.2568 88.9899C80.8698 93.4686 73.8596 96.1363 65.8077 96.1363Z" fill="white"/>
+            </svg></a>
+        <img class="citadel_logo" src="../../static/css/img/citadel.png">
+        </div>
+        <div class="wrapper site-footer__wrapper">
+            <div class="nav__column">
+                <p class="footer__nav-title">CITADEL</p>
+                <ul class="nav__footer flex-column">
+                    <li><a href="{% url 'news' %}">Новости</a></li>
+                    <li><a href="{% url 'info' %}">О Нас</a></li>
+                    <li><a href="{% url 'shop' %}">Магазин</a></li>
+                    <li><a href="{% url 'info' %}">Партнёры</a></li>
+                    <li><a href="{% url 'media' %}">Медиа</a></li>
+                </ul>
+            </div>
+            <div class="nav__column">
+                <p class="footer__nav-title">ДИСЦИПЛИНЫ</p>
+                <ul class="nav__footer flex-column">
+                    <li><a href="{% url 'tournaments' %}">Все</a></li>
+                    <li><a href="{% url 'tournaments' %}">Counter-Strike: GO</a></li>
+                    <li><a href="{% url 'tournaments' %}">League of Legends</a></li>
+                    <li><a href="{% url 'tournaments' %}">Dota 2</a></li>
+                    <li><a href="{% url 'tournaments' %}">FIFA</a></li>
+                </ul>
+            </div>
+            <div class="nav__column">
+                <p class="footer__nav-title">СОЦИАЛЬНЫЕ СЕТИ</p>
+                <ul class="nav__footer flex-column">
+                    <li><a href="https://vk.com/citadel.esports">ВКонтакте</a></li>
+                    <li><a href="{% url 'info' %}">Instagram</a></li>
+                    <li><a href="{% url 'info' %}">YouTube</a></li>
+                    <li><a href="{% url 'info' %}">Twitch</a></li>
+                    <li><a href="https://discord.com/invite/pVhQGd2gdm">Discord</a></li>
+                </ul>
+            </div>
+            <div class="nav__column info">
+                <p class="footer__nav-title">ИНФОРМАЦИЯ</p>
+                <ul class="nav__footer flex-column">
+                    <li><a href="{% url 'info' %}">FAQ</a></li>
+                    <li><a href="{% url 'info' %}">Контакты</a></li>
+                    <li class="special"><a href="{% url 'info' %}">Политика конфеденциальности</a></li>
+                    <li><a href="{% url 'info' %}">Условия и положения</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../../static/js/hide_block.js" defer></script>
+    <script src="../../static/js/click.js" defer></script>
+</body>
+</html>

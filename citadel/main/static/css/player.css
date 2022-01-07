@@ -1,0 +1,160 @@
+
+body {
+    background-color: black;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Header */
+
+header {
+    height: 100px;
+}
+
+.site-header {
+    display: flex;
+    border-bottom: 1px solid whitesmoke;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*border: 1px solid #8d0040;*/
+}
+
+.brand {
+    position: absolute;
+    left: 150px;
+    top: 0;
+    display: inline-block;
+}
+
+.nav__wrapper {
+    display: flex;
+    margin-left: 333px;
+    /*border: 1px solid #bd0040;*/
+}
+
+.nav__item {
+    display: block;
+    padding: 15px 37px;
+    font-weight: 600;
+    font-size: 20px;
+    color: whitesmoke;
+    /*border: 1px solid #bd0c0c;*/
+}
+
+.nav__item a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.block {
+    display: block;
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    align-items: left;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-right: 140px;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 150px;
+    font-weight: 600;
+}
+
+/* Footer */
+
+footer {
+    height: 440px;
+    color: whitesmoke;
+}
+
+.site-footer {
+    border-top: 1px solid whitesmoke;
+}
+
+.site-footer__wrapper {
+    display: flex;
+    justify-content: right;
+    /*border: 1px solid blue;*/
+    margin-top: 80px;
+    margin-left: 700px;
+    flex-wrap: wrap;
+}
+
+.nav__column {
+    /*border: 1px solid whitesmoke;*/
+    padding: 10px;
+    margin-right: 80px;
+}
+
+.info {
+    width: 220px;
+    margin-right: 110px;
+}
+
+.footer__nav-title {
+    text-align: left;
+    padding-left: 0;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.nav__footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav__footer li {
+    padding-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    display: block;
+}
+
+.nav__footer a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.special {
+    line-height: 1.8;
+}
+
+.brand__footer {
+    position: absolute;
+    left: 150px;
+    margin-top: 90px;
+    display: inline-block;
+}
+
+.citadel_logo {
+    position: absolute;
+    left: 320px;
+    margin-top: 125px;
+    height: 50px;
+    display: inline-block;
+}
+
+/* Main*/
+
+.site-main__player {
+    height: 900px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
