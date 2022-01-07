@@ -153,11 +153,15 @@ footer {
 .site-main__home {
     height: 6860px;
     color: whitesmoke;
+    display: block;
 }
 
 .citadel_logo-main {
     width: 100%;
     height: 970px;
+    display: block;
+    margin: 0 auto;
+    max-width: 1920px;
 }
 
 .welcome_title {
@@ -208,12 +212,18 @@ footer {
     /*border: 1px solid blue;*/
 }
 
+.main_news-box {
+    display: flex;
+    margin: auto;
+}
+
 .main_news {
-    margin-left: 140px;
-    margin-right: 140px;
+    margin-left: 120px;
+    margin-right: 120px;
     margin-top: 120px;
     height: 600px;
     margin-bottom: 80px;
+    max-width: 1920px;
 }
 
 .site-news__wrapper {
@@ -239,17 +249,17 @@ footer {
     background: linear-gradient(145.55deg, #0E0E10 0%, #8D8D8D 1486.02%);
     width: 160px;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .nav__item-news:first-child {
     margin-left: 0;
+}
+
+.active {
     background: linear-gradient(145.55deg, #D70000 0%, #CC0202 0.15%, #FF0000 1486.02%), #FF0000;
 }
 
-.nav__item-news a {
-    text-decoration: none;
-    color: whitesmoke;
-}
 
 .main-content {
     display: grid;
@@ -322,6 +332,10 @@ footer {
     color: whitesmoke;
 }
 
+.more_news a:hover {
+    color: red;
+}
+
 .news_tick {
     margin-left: 15px;
     cursor: pointer;
@@ -357,14 +371,14 @@ footer {
 .main-content_disciplines {
     display: grid;
     /*border: 1px solid yellow;*/
-    width: 100%;
     height: 480px;
     column-gap: 30px;
     grid-template-columns: repeat(4, 240px);
     grid-template-rows: repeat(1, 360px);
     margin-top: 120px;
-    background: url(img/bg.png);
-    background-size: 1920px 1080px;
+    background: url(img/bg.png) no-repeat;
+    background-position: 50% 50%;
+    background-size: 1920px 100%;
     overflow: hidden;
     justify-content: center;
 }
@@ -374,6 +388,7 @@ footer {
     height: 360px;
     object-fit: cover;
     filter: grayscale(1);
+    transition: 0.2s;
 }
 
 .gallery_img:hover {
@@ -411,10 +426,13 @@ footer {
     max-width: 180px;
     margin-bottom: 20px;
     font-weight: 600;
+    transition: 0.2s;
 }
 
 .gallery_img:hover + .gallery_img-title {
     color: red;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 /* */
@@ -446,8 +464,9 @@ footer {
     margin-top: 120px;
     height: 880px;
     margin-bottom: 60px;
-    background: url(img/media_citadel.png);
-    background-size: 100% 100%;
+    background: url(img/media_citadel.png) no-repeat;
+    background-position: 50% 50%;
+    background-size: 1640px 880px;
 }
 
 .play {
@@ -535,6 +554,10 @@ footer {
     color: whitesmoke;
 }
 
+.more_video a:hover {
+    color: red;
+}
+
 .news_tick {
     margin-left: 15px;
 }
@@ -570,8 +593,9 @@ footer {
     grid-template-columns: repeat(4, 280px);
     grid-template-rows: repeat(2, 160px);
     margin-top: 120px;
-    background: url(img/bg.png);
-    background-size: 1920px 1080px;
+    background: url(img/bg.png) no-repeat;
+    background-position: 50% 50%;
+    background-size: 1920px 100%;
     overflow: hidden;
     justify-content: center;
 }
@@ -592,4 +616,8 @@ footer {
 .gallery__item_partners {
     margin-left: 0;
     margin-top: 150px;
+}
+
+figcaption:hover {  
+    text-decoration: underline;
 }
