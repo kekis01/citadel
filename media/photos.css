@@ -272,3 +272,7 @@ footer {
     /*border: 1px solid red;*/
     float: right;
 }
+
+figcaption:hover {  
+    text-decoration: underline;
+}

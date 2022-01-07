@@ -151,7 +151,6 @@ footer {
 /* Main*/
 
 .site-main__news {
-    height: 3400px;
     color: whitesmoke;
 }
 
@@ -159,7 +158,6 @@ footer {
     display: flex;
     justify-content: flex-start;
     /*border: 1px solid blue;*/
-    height: 100%;
     margin-top: 80px;
 }
 
@@ -197,19 +195,19 @@ footer {
     text-transform: uppercase;
 }
 
-.nav__main a {
-    text-decoration: none;
-    color: whitesmoke;
+.nav__main li:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .site__main-content {
     display: flex;
     /*border: 1px solid red;*/
-    height: 100%;
     margin-top: 0;
     margin-left: 120px;
     width: 1220px;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .site__title {
@@ -298,4 +296,9 @@ footer {
 .main_text a {
     text-decoration: none;
     color: whitesmoke;
+}
+
+.main_text:hover {  
+    text-decoration: underline;
+    cursor: pointer;
 }

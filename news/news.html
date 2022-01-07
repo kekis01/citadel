@@ -34,17 +34,17 @@
             <div class="nav-main__column">
                 <p class="main__nav-title">Новости</p>
                 <ul class="nav__main flex-column-main">
-                    <li><a href="#">Все</a></li>
-                    <li><a href="#">Counter-Strike</a></li>
-                    <li><a href="#">Dota 2</a></li>
-                    <li><a href="#">FIFA</a></li>
-                    <li><a href="#">League of Legends</a></li>
-                    <li><a href="#">События</a></li>
+                    <li onclick="hiddenClick()">Все</li>
+                    <li onclick="hiddenClick('cs-go')">Counter-Strike</li>
+                    <li onclick="hiddenClick('dota-2')">Dota 2</li>
+                    <li onclick="hiddenClick('fifa')">FIFA</li>
+                    <li onclick="hiddenClick('lol')">League of Legends</li>
+                    <li onclick="hiddenClick('event')">События</li>
                 </ul>
             </div>
             <div class="site__main-content">
                 <div class="site__title">ВСЕ НОВОСТИ</div>
-                <div class="news_content">
+                <div class="news_content cs-go all" id="cs-go">
                     <div class="img_content">
                         <img src="img/2x2.png">
                     </div>
@@ -55,7 +55,7 @@
                         <div class="grey_text-2">Сегодня</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content dota-2 all" id="dota-2">
                     <div class="img_content">
                         <img src="img/urfu.jpg">
                     </div>
@@ -66,7 +66,7 @@
                         <div class="grey_text-2">Вчера</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content event all" id="event">
                     <div class="img_content">
                         <img src="img/rede.jpg">
                     </div>
@@ -77,7 +77,7 @@
                         <div class="grey_text-2">16 мая 2021</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content lol all" id="lol">
                     <div class="img_content">
                         <img src="img/lol.jpg">
                     </div>
@@ -88,7 +88,7 @@
                         <div class="grey_text-2">28 апреля 2021</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content dota-2 cs-go all" id="dota-2">
                     <div class="img_content">
                         <img src="img/csgo-dota.png">
                     </div>
@@ -102,7 +102,7 @@
                         <div class="grey_text-2">24 марта 2021</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content dota-2 all" id="dota-2">
                     <div class="img_content">
                         <img src="img/pro.jpg">
                     </div>
@@ -113,7 +113,7 @@
                         <div class="grey_text-2">29 января 2021</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content event all" id="cs-go" id="dota-2" id="event">
                     <div class="img_content">
                         <img src="img/amog.png">
                     </div>
@@ -128,7 +128,7 @@
                         <div class="grey_text-2">9 декабря 2020</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content dota-2 all" id="dota-2">
                     <div class="img_content">
                         <img src="img/10k.png">
                     </div>
@@ -139,7 +139,7 @@
                         <div class="grey_text-2">13 мая 2020</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content cs-go all" id="cs-go">
                     <div class="img_content">
                         <img src="img/p90.png">
                     </div>
@@ -150,7 +150,7 @@
                         <div class="grey_text-2">27 апреля 2020</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content cs-go all" id="cs-go">
                     <div class="img_content">
                         <img src="img/inmt.jpg">
                     </div>
@@ -161,7 +161,7 @@
                         <div class="grey_text-2">9 ноября 2020</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content dota-2 cs-go all" id="dota-2" id="cs-go">
                     <div class="img_content">
                         <img src="img/ak47.png">
                     </div>
@@ -175,7 +175,7 @@
                         <div class="grey_text-2">8 ноября 2020</div>
                     </div>
                 </div>
-                <div class="news_content">
+                <div class="news_content event all" id="event">
                     <div class="img_content">
                         <img src="img/pekus.jpg">
                     </div>
@@ -239,5 +239,6 @@
             </div>
         </div>
     </footer>
+    <script src="hide_flex.js"></script>
 </body>
 </html>

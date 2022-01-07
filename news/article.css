@@ -290,6 +290,7 @@ footer {
     margin-top: 60px;
     flex-direction: column;
     background: url(img/bg.png);
+    background-position: 50% 50%;
     background-size: 100% 100%;
 }
 
@@ -299,7 +300,7 @@ footer {
     font-size: 28px;
     line-height: 34px;
     display: flex;
-    margin-left: 140px;
+    margin-left: calc(50% - 820px);
     margin-top: 60px;
     margin-bottom: 40px;
 }
@@ -564,4 +565,8 @@ footer {
     width: 240px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+figcaption:hover {  
+    text-decoration: underline;
 }
