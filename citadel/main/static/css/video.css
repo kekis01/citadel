@@ -79,6 +79,17 @@ header {
     width: 150px;
     font-weight: 600;
     margin-left: auto;
+    text-transform: uppercase;
+}
+
+.block:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+
+.nick_block:hover {
+    color: whitesmoke;
+    background-color: red;
 }
 
 .block_with_nickname {

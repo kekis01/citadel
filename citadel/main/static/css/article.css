@@ -79,6 +79,17 @@ header {
     width: 150px;
     font-weight: 600;
     margin-left: auto;
+    text-transform: uppercase;
+}
+
+.block:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+
+.nick_block:hover {
+    color: whitesmoke;
+    background-color: red;
 }
 
 .block_with_nickname {
@@ -485,7 +496,7 @@ footer {
     align-items: center;
     color: #8D8D8D;
     position: absolute;
-    right: -35px;
+    right: -30px;
 }
 
 .comment_text {
@@ -611,22 +622,47 @@ footer {
     text-transform: uppercase;
     margin-bottom: 160px;
 }
-.non{
+
+.publish:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+
+.non_publish{
     border: 1px solid grey;
     color: grey;
+    margin-top: 50px;
+    display: block;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 240px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 160px;
 }
+
 figcaption:hover {  
     text-decoration: underline;
 }
+
 .fire_button {
     background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
+    background-repeat: no-repeat;
+    cursor: pointer;
     overflow: hidden;
+    border: none;
 }
+
 .fire_form{
     background: transparent;
-     display: inline-block;
-    position: relative;
+    display: flex;
 }
+
+.count_num {
+    display: flex;
+}
+

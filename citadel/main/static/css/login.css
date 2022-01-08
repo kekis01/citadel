@@ -50,74 +50,6 @@ header {
     color: whitesmoke;
 }
 
-.block {
-    display: block;
-    border: 1px solid red;
-    background-color: transparent;
-    color: red;
-    align-items: left;
-    font-size: 20px;
-    font-family: 'Montserrat', Arial, sans-serif;
-    margin-right: 140px;
-    cursor: pointer;
-    text-align: center;
-    height: 50px;
-    width: 150px;
-    font-weight: 600;
-}
-
-.nick_block {
-    display: block;
-    border: 1px solid red;
-    background-color: transparent;
-    color: red;
-    font-size: 20px;
-    font-family: 'Montserrat', Arial, sans-serif;
-    cursor: pointer;
-    text-align: center;
-    height: 50px;
-    width: 150px;
-    font-weight: 600;
-    margin-left: auto;
-    text-transform: uppercase;
-}
-
-.block:hover {
-    color: whitesmoke;
-    background-color: red;
-}
-
-.nick_block:hover {
-    color: whitesmoke;
-    background-color: red;
-}
-
-.block_with_nickname {
-    display: flex;
-    /*border: 1px solid blue;*/
-    background-color: transparent;
-    margin-right: 140px;
-}
-
-.nickname {
-    margin-right: 30px;
-    display: flex;
-    color: whitesmoke;
-    /*border: 1px solid yellow;*/
-    margin-top: auto;
-    margin-bottom: auto;
-    font-weight: 500;
-    font-size: 24px;
-}
-
-.ava-1 {
-    height: 50px;
-    width: 50px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 15px;
-}
-
 /* Footer */
 
 footer {
@@ -202,19 +134,51 @@ footer {
 
 /* Main */
 
-.main__blank {
+.main_login {
     color: whitesmoke;
     height: 800px;
-    width: 100%;
     display: flex;
 }
 
-.stub {
+.login_block {
     display: block;
-    margin: auto;
-    font-size: 72px;
-    font-weight: 600;
-    /*border: 1px solid red;*/
+    border: 1px solid grey;
     text-align: center;
+    margin: auto;
+    padding: 20px 50px;
 }
 
+.enter {
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 18px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.enter:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+
+.reg_button {
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 18px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.reg_button:hover {
+    color: whitesmoke;
+    background-color: red;
+}
