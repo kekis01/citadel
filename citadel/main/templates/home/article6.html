@@ -66,7 +66,7 @@
                         <svg width="22" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H16L20 20V2C20 0.9 19.1 0 18 0ZM16 12H4V10H16V12ZM16 9H4V7H16V9ZM16 6H4V4H16V6Z" fill="#8D8D8D"/>
                         </svg>
-                        7
+                        <span id="count"></span>
                     </span>
                     <span>
                         <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,186 +149,47 @@
             </div>
         </div>
         <div class="comments_section">
-            <div class="comments_count">Комментарии (7)</div>
+            <div class="comments_count">Комментарии (<div id="count1"></div>)</div>
+            {% for comment in comments %}
             <div class="comment_example">
                 <div class="img_example">
                     <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
                 </div>
                 <div class="flex_comment">
                     <div class="name_and_info">
-                        <span class="nickname">USER NICKNAME</span>
-                        <span class="date_comment">4 ноября 2021, 14:00</span>
+                        <span class="nickname">{{ comment.author }}</span>
+                        <span class="date_comment">{{ comment.create_date }}</span>
                         <span class="count_fire">
                             <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
                             </svg>
-                            122
+                            <button type="button">{{ comment.like_count }}</button>
                         </span>
                     </div>
                     <div class="comment_text">
-                        <p>
-                            ProStreet папееомимо этого пострадал от нехватки времени из-за ежегодного выпуска NFSProStreet помимо этого пострадал от
-                            нехватки времени из-за ежегодного выпуска NFS, что на качестве игры отразилось не лучшим образом. ЕА после этого серию на двух годичный цикл разработки перевели. Насколько я знаю, Shift 1 от
-                            Slightly Mad Studios и Undercover от Black Box начали разрабатывать в один год, просто Undercover должен быть выйти раньше, чтобы сохранить ежегодный выпуск игр серии.
-                        </p>
-                        <p>
-                            А Shift 3 вышел бы, если бы ЕА не была ЕА.
-                            Там вообще веселая история. ЕА заказала у SMS разработку Shift 3 с условием, что они не будут
-                            больше ни с кем работать во время действия контракта. SMS согласились.
-                            А ЕА перед самым началом разработки отменила контракт, из-за чего SMS остались без работы и,
-                             из-за условий, без сторонних контрактов. Потом от ЕА пошли попытки переманить разработчиков к себе,
-                             что еще более ухудшило положение SMS.
-                            Но их спасло то, что они на краудфандинг ушли со своим Project Cars. (1000 символов)
-                        </p>
+                        <p>{{ comment.text }}</p>
                     </div>
-                    <div class="answer_title">Ответить</div>
+
                 </div>
             </div>
-            <section>
-                <div class="comment_example-2">
-                    <div class="img_example">
-                        <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                    </div>
-                    <div class="flex_comment">
-                        <div class="name_and_info">
-                            <span class="nickname">delykek</span>
-                            <span class="date_comment">4 ноября 2021, 12:27</span>
-                            <span class="count_fire">
-                                <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                                </svg>
-                                21
-                            </span>
-                        </div>
-                        <div class="comment_text">
-                            <p>
-                                В очередной раз доказывают, что НаВи всем нужны, что НаВи самая популярная команда в СНГ.
-                            </p>
-                        </div>
-                        <div class="answer_title">Ответить</div>
-                    </div>
-                </div>
-                <div class="comment_example-3">
-                    <div class="img_example">
-                        <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                    </div>
-                    <div class="flex_comment">
-                        <div class="name_and_info">
-                            <span class="nickname">Sticker</span>
-                            <span class="date_comment">6 ноября 2021, 12:43</span>
-                            <span class="count_fire">
-                                <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                                </svg>
-                                7
-                            </span>
-                        </div>
-                        <div class="comment_text">
-                            <p>
-                                <span class="ask">delyakek</span>, Не думаю что только в снг
-                            </p>
-                        </div>
-                        <div class="answer_title">Ответить</div>
-                    </div>
-                </div>
-                <div class="comment_example-4">
-                    <div class="img_example">
-                        <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                    </div>
-                    <div class="flex_comment">
-                        <div class="name_and_info">
-                            <span class="nickname">prophet</span>
-                            <span class="date_comment">4 ноября 2021, 13:16</span>
-                            <span class="count_fire">
-                                <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                                </svg>
-                                3
-                            </span>
-                        </div>
-                        <div class="comment_text">
-                            <p>
-                                <span class="ask">delyakek</span>, какое СНГ? В СНГ даже близко никого к ним нет. Они и в мире самые популярные
-                            </p>
-                        </div>
-                        <div class="answer_title">Ответить</div>
-                    </div>
-                </div>
-                <div class="comment_example-5">
-                    <div class="img_example">
-                        <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                    </div>
-                    <div class="flex_comment">
-                        <div class="name_and_info">
-                            <span class="nickname">delykek</span>
-                            <span class="date_comment">5 ноября 2021, 16:22</span>
-                            <span class="count_fire">
-                                <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                                </svg>
-                                2
-                            </span>
-                        </div>
-                        <div class="comment_text-1">
-                            <p>
-                                <span class="ask">prophet</span>, я и это всегда говорю, просто я навел пример только в СНГ) Всякие Гамботы, ВП, никому не сдались, кроме СНГ, а НаВи знает весь мир
-                            </p>
-                        </div>
-                        <div class="answer_title">Ответить</div>
-                    </div>
-                </div>
-                <div class="comment_example-6">
-                    <div class="img_example">
-                        <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                    </div>
-                    <div class="flex_comment">
-                        <div class="name_and_info">
-                            <span class="nickname">Hater of everything</span>
-                            <span class="date_comment">4 ноября 2021, 15:20</span>
-                            <span class="count_fire">
-                                <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                                </svg>
-                                3
-                            </span>
-                        </div>
-                        <div class="comment_text">
-                            <p>
-                                <span class="ask">delyakek</span>, популярна у глупых детей.
-                            </p>
-                        </div>
-                        <div class="answer_title">Ответить</div>
-                    </div>
-                </div>
-            </section>
-            <div class="comment_example-7">
-                <div class="img_example">
-                    <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
-                </div>
-                <div class="flex_comment">
-                    <div class="name_and_info">
-                        <span class="nickname">Machovsky</span>
-                        <span class="date_comment">4 ноября 2021, 14:58</span>
-                        <span class="count_fire">
-                            <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.90625 0.000976562C8.90625 0.000976562 9.6 2.48574 9.6 4.50168C9.6 6.43323 8.33437 7.9991 6.40312 7.9991C4.4625 7.9991 3 6.43323 3 4.50168L3.02813 4.16413C1.13438 6.41448 0 9.33056 0 12.4998C0 16.6442 3.35625 20.001 7.5 20.001C11.6438 20.001 15 16.6442 15 12.4998C15 7.44589 12.5719 2.93581 8.90625 0.000976562ZM7.22813 17.188C5.55938 17.188 4.20937 15.8753 4.20937 14.2438C4.20937 12.7248 5.19375 11.6559 6.84375 11.3184C8.50313 10.9808 10.2188 10.1838 11.175 8.89924C11.5406 10.1088 11.7281 11.384 11.7281 12.6873C11.7281 15.1721 9.7125 17.188 7.22813 17.188Z" fill="#8D8D8D"/>
-                            </svg>
-                            8
-                        </span>
-                    </div>
-                    <div class="comment_text">
-                        <p>
-                            Получается максимальный профит для PGL финал Нави - Нип, ждем сценария. ))
-                        </p>
-                    </div>
-                    <div class="answer_title">Ответить</div>
-                </div>
-            </div>
+            {% endfor %}
             <div class="new_comment">
                 <div class="new_comment-title">Новый комментарий</div>
-                <div class="box_comment">Напиши, что думаешь</div>
-                <button type="button" class="publish">Опубликовать</button>
+                <form action="" method="post">
+                <div class="box_comment">
+                {% csrf_token %}
+                {% for f in form %}
+                <p>{{ f }}</p>
+                {% endfor %}
+                </div>
+                {% if request.user.is_authenticated %}
+                    <button type="submit" class="publish">ОПУБЛИКОВАТЬ</button>
+                {% else %}
+                    <button type="submit" disabled class="publish non">ОПУБЛИКОВАТЬ</button>
+                {% endif %}
+            </form>
             </div>
+
         </div>
     </main>
 
@@ -381,5 +242,6 @@
             </div>
         </div>
     </footer>
+<script src="../../static/js/count_comments.js" defer></script>
 </body>
 </html>
