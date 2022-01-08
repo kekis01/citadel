@@ -18,5 +18,7 @@ class Comments(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField()
-    like_count = models.IntegerField(default=0)
-    liked_by_user = models.BooleanField(default=False)
+    likes = models.ManyToManyField(User, related_name='comment_post')
+
+    def total_likes(self):
+        return self.likes.count()

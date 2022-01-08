@@ -1,12 +1,13 @@
 from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 
 # Create your views here
 from .forms import *
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
 current_article_id = 0
@@ -18,6 +19,12 @@ def index(request):
 
 def news(request):
     return render(request, 'home/news.html')
+
+
+def LikeView(request, artid):
+    comment = Comments.objects.get(id=request.GET.get('comment_id'))
+    comment.likes.add(request.user)
+    return HttpResponseRedirect(reverse('article', args=[str(artid)]))
 
 
 def article(request, artid):

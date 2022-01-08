@@ -618,3 +618,15 @@ footer {
 figcaption:hover {  
     text-decoration: underline;
 }
+.fire_button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+}
+.fire_form{
+    background: transparent;
+     display: inline-block;
+    position: relative;
+}

@@ -17,4 +17,5 @@ urlpatterns = [
     path('info/', info, name='info'),
     path('shop/', shop, name='shop'),
     path('article/<int:artid>/', article, name='article'),
+    path('like/<int:artid>', LikeView, name='like_comment'),
 ]
