@@ -611,7 +611,10 @@ footer {
     text-transform: uppercase;
     margin-bottom: 160px;
 }
-
+.non{
+    border: 1px solid grey;
+    color: grey;
+}
 figcaption:hover {  
     text-decoration: underline;
 }
