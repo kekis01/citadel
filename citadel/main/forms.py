@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
+from main.models import Comments
+
 
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
@@ -19,3 +21,9 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('text',)

@@ -9,6 +9,8 @@ from .forms import *
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
+current_article_id = 0
+
 
 def index(request):
     return render(request, 'home/home.html')
@@ -19,7 +21,20 @@ def news(request):
 
 
 def article(request, artid):
-    return render(request, f'home/article{artid}.html')
+    comment = Comments.objects.filter(article_id=artid)
+    global current_article_id
+    current_article_id = artid
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.author = request.user
+            form.article_id = artid
+            form.save()
+            return redirect('article', artid)
+    else:
+        form = CommentForm
+    return render(request, f'home/article{artid}.html', {"article_id": artid, "comments": comment, "form": form})
 
 
 def photos(request):
