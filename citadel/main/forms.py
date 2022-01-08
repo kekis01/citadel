@@ -12,6 +12,7 @@ class RegisterUserForm(UserCreationForm):
     email = forms.CharField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    field_order = ['username', 'email', 'password1', 'password2']
 
     class Meta:
         model = User
@@ -27,3 +28,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('text',)
+

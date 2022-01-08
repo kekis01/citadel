@@ -202,7 +202,9 @@
                 <form action="" method="post">
                 <div class="box_comment">
                 {% csrf_token %}
-                {{ form }}
+                {% for f in form %}
+                <p>{{ f }}</p>
+                {% endfor %}
                 </div>
                 {% if request.user.is_authenticated %}
                     <button type="submit" class="publish">ОПУБЛИКОВАТЬ</button>
