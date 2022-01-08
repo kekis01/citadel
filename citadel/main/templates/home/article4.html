@@ -28,7 +28,11 @@
             </nav>
         </div>
         {% if request.user.is_authenticated %}
-        <p class="block">{{ user.username }} <button type="button" class="block" onclick="window.location.href='{% url 'logout' %}'">Выйти</button></p>
+        <div class="block_with_nickname">
+            <img class="ava-1" src="../../static/css/img/ava-1.png">
+            <div class="nickname_login">{{ user.username }}</div>
+            <button type="button" class="nick_block" onclick="window.location.href='{% url 'logout' %}'">Выйти</button>
+        </div>
         {% else %}
         <button type="button" class="block" onclick="window.location.href='{% url 'login' %}'">ВОЙТИ</button>
         {% endif %}

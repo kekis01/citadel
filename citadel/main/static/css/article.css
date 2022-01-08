@@ -66,6 +66,47 @@ header {
     font-weight: 600;
 }
 
+.nick_block {
+    display: block;
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 150px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.block_with_nickname {
+    display: flex;
+    /*border: 1px solid blue;*/
+    background-color: transparent;
+    margin-right: 140px;
+}
+
+.nickname_login {
+    margin-right: 30px;
+    display: flex;
+    color: whitesmoke;
+    /*border: 1px solid yellow;*/
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.ava-1 {
+    height: 50px;
+    width: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+}
+
 /* Footer */
 
 footer {
