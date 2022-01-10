@@ -8,10 +8,19 @@ from main.models import Comments
 
 
 class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    email = forms.CharField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
-    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(label='Логин', max_length=16, widget=forms.TextInput(attrs={'class': 'form-input',
+                                                                                           'placeholder': "Логин"
+                                                                                           }))
+    email = forms.CharField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input',
+                                                                          'placeholder': "Email"}))
+    password1 = forms.CharField(label='Пароль', max_length=24,
+                                widget=forms.PasswordInput(attrs={'class': 'form-input',
+                                                                  'placeholder': "Пароль",
+                                                                  }))
+    password2 = forms.CharField(label='Повтор пароля', max_length=24,
+                                widget=forms.PasswordInput(attrs={'class': 'form-input',
+                                                                  'placeholder': "Повтор пароля",
+                                                                  }))
     field_order = ['username', 'email', 'password1', 'password2']
 
     class Meta:
@@ -20,14 +29,19 @@ class RegisterUserForm(UserCreationForm):
 
 
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(label='Логин', max_length=16, widget=forms.TextInput(attrs={'class': 'form-input',
+                                                                                           'placeholder': "Логин"
+                                                                                           }))
+    password = forms.CharField(label='Пароль', max_length=24, widget=forms.PasswordInput(attrs={'class': 'form-input',
+                                                                                                'placeholder': "Пароль",
+                                                                                                }))
 
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('text',)
+
     text = forms.CharField(label="Комментарий",
                            widget=forms.Textarea(attrs={'class': 'comment_form',
                                                         'placeholder': "Напиши, что думаешь(макс. 1000 символов)",
@@ -40,6 +54,7 @@ class CommentFormDisabled(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('text',)
+
     text = forms.CharField(label="Комментарий",
                            widget=forms.Textarea(attrs={'class': 'comment_form',
                                                         'placeholder': "Зарегистрируйтесь, чтобы написать комментарий",
@@ -47,5 +62,3 @@ class CommentFormDisabled(forms.ModelForm):
                                                         'cols': 172,
                                                         'maxlength': 1000,
                                                         'disabled': 'disabled'}))
-
-

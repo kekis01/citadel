@@ -152,7 +152,7 @@
             {% for comment in comments %}
             <div class="comment_example">
                 <div class="img_example">
-                    <img class="comment_ava-1"src="../../static/css/img/ava-1.png">
+                    <img class="comment_ava-1" src="../../static/css/img/ava-1.png">
                 </div>
                 <div class="flex_comment">
                     <div class="name_and_info">
@@ -177,33 +177,43 @@
                                     </span>
                                 {% endif %}
                              </span>
-                            {{ comment.total_likes }}
+                            {% if request.user in comment.likes.all %}
+                                <div class="count_num liked">{{ comment.total_likes }}</div>
+                            {% else %}
+                                <div class="count_num">{{ comment.total_likes }}</div>
+                            {% endif %}
                         </span>
                     </div>
                     <div class="comment_text">
                         <p>{{ comment.text }}</p>
                     </div>
-
                 </div>
             </div>
             {% endfor %}
             <div class="new_comment">
-                <div class="new_comment-title">Новый комментарий</div>
-                <form action="" method="post">
-                <div class="box_comment">
-                {% csrf_token %}
-                {% for f in form %}
-                <p>{{ f }}</p>
-                {% endfor %}
-                </div>
+                <div class="new_comment-title" id="new_comment">Новый комментарий</div>
                 {% if request.user.is_authenticated %}
+                    <form action="" method="post">
+                    <div class="box_comment">
+                        {% csrf_token %}
+                        {% for f in form %}
+                            <div class="text_area">{{ f }}</div>
+                        {% endfor %}
+                    </div>
                     <button type="submit" class="publish">ОПУБЛИКОВАТЬ</button>
+                    </form>
                 {% else %}
-                    <button type="submit" disabled class="publish non">ОПУБЛИКОВАТЬ</button>
+                    <form action="" method="post">
+                        <div class="box_comment">
+                            {% csrf_token %}
+                            {% for f in form %}
+                                <div class="text_area" disabled>{{ f }}</div>
+                            {% endfor %}
+                        </div>
+                        <button type="submit" disabled class="non_publish">ОПУБЛИКОВАТЬ</button>
+                    </form>
                 {% endif %}
-            </form>
             </div>
-
         </div>
     </main>
 
@@ -256,6 +266,7 @@
             </div>
         </div>
     </footer>
-<script src="../../static/js/count_comments.js" defer></script>
+    <script src="../../static/js/count_comments.js" defer></script>
+    <script src="../../static/js/textareasize.js"></script>
 </body>
 </html>
