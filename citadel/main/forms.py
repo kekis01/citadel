@@ -28,4 +28,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('text',)
-
+    text = forms.CharField(label="Комментарий", widget=forms.Textarea(attrs={'class': 'comment_form'}))

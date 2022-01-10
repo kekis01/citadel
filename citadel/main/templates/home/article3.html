@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="comments_section">
-            <div class="comments_count">Комментарии (<div id="count1"></div>)</div>
+            <div class="comments_count" id="comments">Комментарии (<div id="count1"></div>)</div>
             {% for comment in comments %}
             <div class="comment_example">
                 <div class="img_example">
@@ -162,7 +162,7 @@
                         <span class="count_fire">
                             <span class="count_fire">
                                 {% if request.user.is_authenticated %}
-                                <form class="fire_form" action="{% url 'like_comment' 3 %}">
+                                <form class="fire_form" action="{% url 'like_comment' 3 %}#comments">
                                     {% csrf_token %}
                                     <button class="fire_button" type="submit" name="comment_id" value="{{ comment.id }}">
                                         <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">

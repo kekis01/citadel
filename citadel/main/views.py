@@ -10,8 +10,6 @@ from .forms import *
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
-current_article_id = 0
-
 
 def index(request):
     return render(request, 'home/home.html')
@@ -29,8 +27,6 @@ def LikeView(request, artid):
 
 def article(request, artid):
     comment = Comments.objects.filter(article_id=artid)
-    global current_article_id
-    current_article_id = artid
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -38,7 +34,7 @@ def article(request, artid):
             form.author = request.user
             form.article_id = artid
             form.save()
-            return redirect('article', artid)
+            return redirect('article', artid, )
     else:
         form = CommentForm
     return render(request, f'home/article{artid}.html', {"article_id": artid, "comments": comment, "form": form})

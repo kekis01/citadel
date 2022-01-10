@@ -666,3 +666,12 @@ figcaption:hover {
     display: flex;
 }
 
+.comment_form{
+    margin-top: 78px;
+    margin-left: 280px;
+    margin-right: 280px;
+    display: flex;
+    /*border: 1px solid grey;*/
+    flex-direction: column;
+    background: #0E0E10;
+}
