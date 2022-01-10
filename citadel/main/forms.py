@@ -28,4 +28,24 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('text',)
-    text = forms.CharField(label="Комментарий", widget=forms.Textarea(attrs={'class': 'comment_form'}))
+    text = forms.CharField(label="Комментарий",
+                           widget=forms.Textarea(attrs={'class': 'comment_form',
+                                                        'placeholder': "Напиши, что думаешь(макс. 1000 символов)",
+                                                        'rows': 1,
+                                                        'cols': 172,
+                                                        'maxlength': 1000}))
+
+
+class CommentFormDisabled(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('text',)
+    text = forms.CharField(label="Комментарий",
+                           widget=forms.Textarea(attrs={'class': 'comment_form',
+                                                        'placeholder': "Зарегистрируйтесь, чтобы написать комментарий",
+                                                        'rows': 1,
+                                                        'cols': 172,
+                                                        'maxlength': 1000,
+                                                        'disabled': 'disabled'}))
+
+

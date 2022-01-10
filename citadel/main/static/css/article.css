@@ -650,7 +650,7 @@ figcaption:hover {
 }
 
 .fire_button {
-    background-color: Transparent;
+    background-color: transparent;
     background-repeat: no-repeat;
     cursor: pointer;
     overflow: hidden;
@@ -667,11 +667,13 @@ figcaption:hover {
 }
 
 .comment_form{
-    margin-top: 78px;
-    margin-left: 280px;
-    margin-right: 280px;
-    display: flex;
-    /*border: 1px solid grey;*/
-    flex-direction: column;
-    background: #0E0E10;
+    color: whitesmoke;
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+    border: none;
+    background: black;
+    resize: none;
+    width: 100%;
+    outline: none;
 }

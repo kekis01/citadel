@@ -35,8 +35,10 @@ def article(request, artid):
             form.article_id = artid
             form.save()
             return redirect('article', artid, )
-    else:
+    elif request.user.is_authenticated:
         form = CommentForm
+    else:
+        form = CommentFormDisabled
     return render(request, f'home/article{artid}.html', {"article_id": artid, "comments": comment, "form": form})
 
 
