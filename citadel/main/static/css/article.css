@@ -677,3 +677,7 @@ figcaption:hover {
     width: 100%;
     outline: none;
 }
+
+.liked{
+    color: red;
+}

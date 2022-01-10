@@ -21,7 +21,10 @@ def news(request):
 
 def LikeView(request, artid):
     comment = Comments.objects.get(id=request.GET.get('comment_id'))
-    comment.likes.add(request.user)
+    if request.user in comment.likes.all():
+        comment.likes.remove(request.user)
+    else:
+        comment.likes.add(request.user)
     return HttpResponseRedirect(reverse('article', args=[str(artid)]))
 
 

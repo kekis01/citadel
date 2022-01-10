@@ -192,7 +192,11 @@
                                     </span>
                                 {% endif %}
                              </span>
-                            <div class="count_num">{{ comment.total_likes }}</div>
+                            {% if request.user in comment.likes.all %}
+                                <div class="count_num liked">{{ comment.total_likes }}</div>
+                            {% else %}
+                                <div class="count_num">{{ comment.total_likes }}</div>
+                            {% endif %}
                         </span>
                     </div>
                     <div class="comment_text">
