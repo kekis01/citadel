@@ -1,7 +1,9 @@
 from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
+from django.db.models import Count
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.template.loader import render_to_string
 from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 
@@ -10,13 +12,17 @@ from .forms import *
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
+from .models import *
+
 
 def index(request):
-    return render(request, 'home/home.html')
+    art = Article.objects.all()
+    return render(request, 'home/home.html', {'articles': art, })
 
 
 def news(request):
-    return render(request, 'home/news.html')
+    articles = Article.objects.all()
+    return render(request, 'home/news.html', {"articles": articles})
 
 
 def LikeView(request, artid):
@@ -29,6 +35,9 @@ def LikeView(request, artid):
 
 
 def article(request, artid):
+    if artid > Article.objects.last().id:
+        return render(request, 'home/page404.html')
+    post = Article.objects.get(id=artid)
     comment = Comments.objects.filter(article_id=artid)
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -42,7 +51,7 @@ def article(request, artid):
         form = CommentForm
     else:
         form = CommentFormDisabled
-    return render(request, f'home/article{artid}.html', {"article_id": artid, "comments": comment, "form": form})
+    return render(request, f'home/article.html', {"article_id": artid, "comments": comment, "form": form, 'post': post})
 
 
 def photos(request):
@@ -78,7 +87,7 @@ def tournaments(request):
 
 
 def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+    HttpResponseNotFound(render_to_string('home/page404.html'))
 
 
 class RegisterUser(CreateView):

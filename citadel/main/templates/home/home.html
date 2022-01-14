@@ -79,62 +79,17 @@
                 </nav>
             </div>
             <div class="main-content">
-                <figure class="gallery__item gallery__item--1 cs-go all" id="cs-go" value="cs-go">
-                    <img src="../../static/css/img/colizeum.jpg" class="gallery__img" alt="Image 1">
+                {% for article in articles %}
+                    {% if forloop.counter <= 8 %}
+                <figure class="gallery__item gallery__item--{{ article.id|add:"-1" }} {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}" value="{{ article.cat.get_tag }}">
+                    <img src="{{ article.photo.url }}" class="gallery__img" alt="Image 1">
                     <div class="description">
-                        <div class="date__description">Сегодня</div>
-                        <figcaption><a href="{% url 'article' 1%}">COLIZEUM CUP по CS:GO в формате 2х2</a></figcaption>
+                        <div class="date__description">{{ article.time_create }}</div>
+                        <figcaption><a href="{% url 'article' article.id %}" maxlength>{{ article.title }}</a></figcaption>
                     </div>
                 </figure>
-                <figure class="gallery__item gallery__item--2 dota-2 all" id="dota-2" value="dota-2">
-                    <img src="../../static/css/img/urfu.jpg" class="gallery__img" alt="Image 2">
-                    <div class="description">
-                        <div class="date__description">Вчера</div>
-                        <figcaption><a href="{% url 'article' 2%}">Результаты UrFU eSports League 2021 по Dota 2</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--3 event all" id="event" value="event">
-                    <img src="../../static/css/img/rede.jpg" class="gallery__img" alt="Image 3">
-                    <div class="description">
-                        <div class="date__description">16.05.2021</div>
-                        <figcaption><a href="{% url 'article' 3%}">Партнеры нашего супер мерча — RENE BASE</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--4 lol all" id="lol" value="lol">
-                    <img src="../../static/css/img/lol.jpg" class="gallery__img" alt="Image 4">
-                    <div class="description">
-                        <div class="date__description">28.04.2021</div>
-                        <figcaption><a href="{% url 'article' 4%}">Покоряем новые дисциплины! Формируем состав по League of Le...</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--5 event all" id="event" value="event">
-                    <img src="../../static/css/img/pro.jpg" class="gallery__img" alt="Image 5">
-                    <div class="description">
-                        <div class="date__description">29.01.2021</div>
-                        <figcaption><a href="{% url 'article' 6%}">Самое время ворваться на турнир Кибер PROдвижение с сочным при...</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--6 cs-go all" id="cs-go" value="cs-go">
-                    <img src="../../static/css/img/citadelgo.jpg" class="gallery__img" alt="Image 6">
-                    <div class="description">
-                        <div class="date__description">22.04.2020</div>
-                        <figcaption><a href="{% url 'article' 9%}">Для тех, кто дома CITADEL организует турнир по CS: GO совме...</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--7 event all" id="event" value="event">
-                    <img src="../../static/css/img/inmt.jpg" class="gallery__img" alt="Image 7">
-                    <div class="description">
-                        <div class="date__description">09.11.2020</div>
-                        <figcaption><a href="{% url 'article' 10%}">Союз студентов ИНМТ УрФУ совместно с CITADEL запускает...</a></figcaption>
-                    </div>
-                </figure>
-                <figure class="gallery__item gallery__item--8 event all" id="event" value="event">
-                    <img src="../../static/css/img/pekus.jpg" class="gallery__img" alt="Image 8">
-                    <div class="description">
-                        <div class="date__description">01.09.2020</div>
-                        <figcaption><a href="{% url 'article' 12%}">Приветствуем первокурсников и поздравляем студентов всех...</a></figcaption>
-                    </div>
-                </figure>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="more_news">
                 <a href="{% url 'news' %}">

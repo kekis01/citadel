@@ -11,6 +11,7 @@ class Article(models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
 
 class Comments(models.Model):
@@ -22,3 +23,22 @@ class Comments(models.Model):
 
     def total_likes(self):
         return self.likes.count()
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, db_index=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_tag(self):
+        if self.name == 'CS:GO':
+            return "cs-go"
+        elif self.name == 'DOTA 2':
+            return "dota-2"
+        elif self.name == 'FIFA':
+            return "fifa"
+        elif self.name == 'League of Legends':
+            return "lol"
+        else:
+            return "event"
