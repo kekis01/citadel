@@ -85,7 +85,7 @@
                     <img src="{{ article.photo.url }}" class="gallery__img" alt="Image 1">
                     <div class="description">
                         <div class="date__description">{{ article.time_create }}</div>
-                        <figcaption><a href="{% url 'article' article.id %}" maxlength>{{ article.title }}</a></figcaption>
+                        <figcaption><a href="{% url 'article' article.id %}" >{{ article.title }}</a></figcaption>
                     </div>
                 </figure>
                     {% endif %}

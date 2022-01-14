@@ -8,3 +8,4 @@ for(let i = 0; i < li.length; i++){
         this.classList.add('active');
     });
 }
+

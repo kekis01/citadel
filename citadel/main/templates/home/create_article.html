@@ -39,14 +39,24 @@
     </header>
 
     <main class="site-main__player">
+    {% if update %}
+            <form action="{% url 'update_article' get_article.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for f in form %}
+                <label class="form-label">{{ f.label }}</label>
+                <p class="text_login">{{ f }}</p>
+            {% endfor %}
+            <button type="submit" class="publish">Обновить</button>
+    {% else %}
         <form action="{% url 'create_article' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for f in form %}
-                    <label class="form-label">{{ f.label }}</label>
-                    <p class="text_login">{{ f }}</p>
-                {% endfor %}
+            {% csrf_token %}
+            {% for f in form %}
+                <label class="form-label">{{ f.label }}</label>
+                <p class="text_login">{{ f }}</p>
+            {% endfor %}
             <button type="submit" class="publish">ОПУБЛИКОВАТЬ</button>
         </form>
+    {% endif %}
     </main>
 
     <footer class="site-footer">

@@ -20,5 +20,6 @@ urlpatterns = [
     path('like/<int:artid>', LikeView, name='like_comment'),
     path('article/create/', create_article, name='create_article'),
     path('delete/<int:artid>', delete_comment, name='delete_comment'),
-    path('article/delete/<int:artid>', delete_article, name='delete_article'),
+    path('article/<int:artid>/delete', delete_article, name='delete_article'),
+    path('article/<int:artid>/update', update_article, name='update_article'),
 ]

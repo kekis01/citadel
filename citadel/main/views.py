@@ -38,13 +38,30 @@ def create_article(request):
     if not request.user.is_superuser:
         return redirect('news')
     elif request.method == "POST":
-        form = AddPostForm(request.POST, request.FILES)
+        form = AddPostForm(request.POST, request.FILES, )
         if form.is_valid():
             form.save()
             return redirect('news')
     else:
         form = AddPostForm()
     return render(request, 'home/create_article.html', {"form": form})
+
+
+def update_article(request, artid):
+    get_article = Article.objects.get(id=artid)
+    if not request.user.is_superuser:
+        return redirect('news')
+    elif request.method == "POST":
+        form = AddPostForm(request.POST, request.FILES, instance=get_article)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('article', args=[str(artid)]))
+    context = {
+        'get_article': get_article,
+        'update': True,
+        'form': AddPostForm(instance=get_article)
+    }
+    return render(request, 'home/create_article.html', context)
 
 
 def article(request, artid):
@@ -59,7 +76,7 @@ def article(request, artid):
             form.author = request.user
             form.article_id = artid
             form.save()
-            return redirect('article', artid, )
+            return HttpResponseRedirect(reverse('article', args=[str(artid)]))
     elif request.user.is_authenticated:
         form = CommentForm
     else:

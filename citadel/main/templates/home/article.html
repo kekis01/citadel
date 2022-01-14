@@ -77,7 +77,8 @@
                         vk.com
                     </span>
                     {% if request.user.is_superuser %}
-                        <button type="button" class="block" onclick="window.location.href='{% url 'delete_article' article_id%}'">DELETE</button>
+                        <button type="button" class="block" onclick="window.location.href='{% url 'update_article' article_id%}'">CHANGE</button>
+                         <button type="button" class="block" onclick="window.location.href='{% url 'delete_article' article_id%}'">DELETE</button>
                     {% endif %}
                 </div>
                 <div class="main__text">
