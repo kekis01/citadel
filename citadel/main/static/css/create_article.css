@@ -211,3 +211,19 @@ footer {
     align-items: center;
 }
 
+.publish {
+    margin-top: 50px;
+    display: block;
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 240px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 160px;
+}

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
-from main.models import Comments
+from main.models import Comments, Category, Article
 
 
 class RegisterUserForm(UserCreationForm):
@@ -62,3 +62,22 @@ class CommentFormDisabled(forms.ModelForm):
                                                         'cols': 172,
                                                         'maxlength': 1000,
                                                         'disabled': 'disabled'}))
+
+
+class AddPostForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content', 'source', 'photo', 'is_published', 'cat']
+
+    title = forms.CharField(label="Заголовок", max_length=255, widget=forms.Textarea(
+        attrs={'rows': 1, 'cols': 172, 'class': 'title_input', 'placeholder': "Напишите название вашей статьи"}))
+    content = forms.CharField(label="Текст",
+                              widget=forms.Textarea(
+                                  attrs={'rows': 10, 'cols': 172, 'class': 'title_input',
+                                         'placeholder': "О чем расскажете?"}))
+    source = forms.CharField(label="Источник", max_length=255,
+                             widget=forms.Textarea(attrs={'rows': 1, 'cols': 172, 'class': 'title_input',
+                                                          'placeholder': "Укажите источник"}))
+    photo = forms.ImageField(label="Фото", )
+    is_published = forms.BooleanField(label="Публикация")
+    cat = forms.ModelChoiceField(label="Категория", queryset=Category.objects.all(), )

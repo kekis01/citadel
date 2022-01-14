@@ -13,6 +13,9 @@ class Article(models.Model):
     is_published = models.BooleanField(default=True)
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
+    class Meta:
+        ordering = ['-time_create']
+
 
 class Comments(models.Model):
     article_id = models.IntegerField()

@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Citadel - News</title>
+    <title>Citadel - Player</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/news.css">
+    <link rel="stylesheet" href="../../static/css/create_article.css">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
     </style>
@@ -15,7 +16,7 @@
         <div class="wrapper site-header__wrapper">
             <a href="{% url 'Citadel' %}" class="brand"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V120H120V0H0ZM65.8077 96.1363C43.346 96.1363 26.4243 80.0033 26.4243 60.0146C26.4336 51.8072 29.3599 43.8702 34.6807 37.6211H43.1805L26.4243 23.8637C32.541 26.1921 39.0308 27.3865 45.5757 27.3882C50.0381 27.3917 54.4833 26.8356 58.8073 25.7331H58.9631C64.4874 24.3895 70.2533 24.3895 75.7777 25.7331H75.8361C78.6693 26.4363 81.3896 27.5343 83.9172 28.9947C85.1148 29.6763 86.3611 30.426 87.2276 31.0394L80.675 48.9249L79.9546 45.6633L79.8377 45.6049C75.7994 42.5171 70.862 40.8348 65.7785 40.8146C64.9606 40.8146 64.1428 40.8146 63.3542 40.9412C52.7026 42.0024 44.9039 49.9862 44.9039 60.0146C44.9039 70.7245 53.9099 79.2146 65.7785 79.2146C70.9032 79.1128 75.862 77.3803 79.9351 74.2686L80.7043 71.0751L87.2568 88.9899C80.8698 93.4686 73.8596 96.1363 65.8077 96.1363Z" fill="white"/>
-                </svg></a>
+                </svg></a>           
             <nav class="nav">
                 <ul class="nav__wrapper">
                     <li class="nav__item"><a href="{% url 'news' %}">НОВОСТИ</a></li>
@@ -37,39 +38,15 @@
         {% endif %}
     </header>
 
-    <main class="site-main__news">
-        <div class="wrapper site-main__wrapper">
-            <div class="nav-main__column">
-                <p class="main__nav-title">Новости</p>
-                <ul class="nav__main flex-column-main">
-                    <li onclick="hiddenClick()">Все</li>
-                    <li onclick="hiddenClick('cs-go')">Counter-Strike</li>
-                    <li onclick="hiddenClick('dota-2')">Dota 2</li>
-                    <li onclick="hiddenClick('fifa')">FIFA</li>
-                    <li onclick="hiddenClick('lol')">League of Legends</li>
-                    <li onclick="hiddenClick('event')">События</li>
-                </ul>
-            </div>
-            <div class="site__main-content">
-                 <div id="modify" class="site__title">ВСЕ НОВОСТИ</div>
-                {% if request.user.is_superuser %}
-                   <button type="button" class="block" onclick="window.location.href='{% url 'create_article' %}'">Создать новость</button>
-                {% endif %}
-                {% for article in articles %}
-                <div class="news_content {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}">
-                    <div class="img_content">
-                        <img src="{{article.photo.url}}" alt="{{ article.photo }}">
-                    </div>
-                    <div class="box"></div>
-                    <div class="text_box">
-                        <div class="grey_text-1">{{ article.cat }}</div>
-                        <div class="main_text"><a href="{% url 'article' article.id%}">{{ article.title }}</a></div>
-                        <div class="grey_text-2">{{ article.time_create }}</div>
-                    </div>
-                </div>
+    <main class="site-main__player">
+        <form action="{% url 'create_article' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for f in form %}
+                    <label class="form-label">{{ f.label }}</label>
+                    <p class="text_login">{{ f }}</p>
                 {% endfor %}
-            </div>
-        </div>
+            <button type="submit" class="publish">ОПУБЛИКОВАТЬ</button>
+        </form>
     </main>
 
     <footer class="site-footer">
@@ -121,6 +98,5 @@
             </div>
         </div>
     </footer>
-    <script src="../../static/js/hide_flex.js"></script>
 </body>
 </html>

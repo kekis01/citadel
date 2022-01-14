@@ -76,6 +76,9 @@
                         </svg>
                         vk.com
                     </span>
+                    {% if request.user.is_superuser %}
+                        <button type="button" class="block" onclick="window.location.href='{% url 'delete_article' article_id%}'">DELETE</button>
+                    {% endif %}
                 </div>
                 <div class="main__text">
                     {% autoescape off %}
@@ -181,6 +184,16 @@
                                 <div class="count_num liked">{{ comment.total_likes }}</div>
                             {% else %}
                                 <div class="count_num">{{ comment.total_likes }}</div>
+                            {% endif %}
+                        </span>
+                        <span class="delete_com">
+                            {% if request.user.is_superuser %}
+                            <form class="fire_form" action="{% url 'delete_comment' post.id %}#comments">
+                                {% csrf_token %}
+                                <button class="x-mark" type="submit" name="comment_id" value="{{ comment.id }}">
+                                    X
+                                </button>
+                            </form>
                             {% endif %}
                         </span>
                     </div>

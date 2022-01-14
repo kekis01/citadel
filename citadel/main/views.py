@@ -34,8 +34,21 @@ def LikeView(request, artid):
     return HttpResponseRedirect(reverse('article', args=[str(artid)]))
 
 
+def create_article(request):
+    if not request.user.is_superuser:
+        return redirect('news')
+    elif request.method == "POST":
+        form = AddPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('news')
+    else:
+        form = AddPostForm()
+    return render(request, 'home/create_article.html', {"form": form})
+
+
 def article(request, artid):
-    if artid > Article.objects.last().id:
+    if artid < Article.objects.last().id:
         return render(request, 'home/page404.html')
     post = Article.objects.get(id=artid)
     comment = Comments.objects.filter(article_id=artid)
@@ -52,6 +65,18 @@ def article(request, artid):
     else:
         form = CommentFormDisabled
     return render(request, f'home/article.html', {"article_id": artid, "comments": comment, "form": form, 'post': post})
+
+
+def delete_comment(request, artid):
+    if artid < Article.objects.last().id:
+        return render(request, 'home/page404.html')
+    Comments.objects.filter(id=request.GET.get('comment_id')).delete()
+    return HttpResponseRedirect(reverse('article', args=[str(artid)]))
+
+
+def delete_article(request, artid):
+    Article.objects.filter(id=artid).delete()
+    return redirect('news', )
 
 
 def photos(request):
