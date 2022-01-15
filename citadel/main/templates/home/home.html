@@ -82,7 +82,7 @@
                 {% for article in articles %}
                     {% if forloop.counter <= 8 %}
                 <figure class="gallery__item gallery__item--{{ article.id|add:"-1" }} {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}" value="{{ article.cat.get_tag }}">
-                    <img src="{{ article.photo.url }}" class="gallery__img" alt="Image">
+                    <img src="{{ article.preview.url }}" class="gallery__img" alt="Image">
                     <div class="description">
                         <div class="date__description">{{ article.time_create }}</div>
                         <figcaption><a href="{% url 'article' article.id %}" >{{ article.title }}</a></figcaption>

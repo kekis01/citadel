@@ -58,7 +58,7 @@
                 {% for article in articles %}
                 <div class="news_content {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}">
                     <div class="img_content">
-                        <img src="{{article.photo.url}}" alt="{{ article.photo }}">
+                        <img src="{{article.preview.url}}" alt="{{ article.preview }}">
                     </div>
                     <div class="box"></div>
                     <div class="text_box">

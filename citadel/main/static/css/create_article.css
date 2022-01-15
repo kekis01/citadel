@@ -227,3 +227,31 @@ footer {
     text-transform: uppercase;
     margin-bottom: 160px;
 }
+.title_input{
+    background: black;
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
+    color: whitesmoke;
+    outline: grey;
+    border: 1px solid grey;
+}
+.text_input{
+    background: black;
+    width: 500px;
+    height: 200px;
+    font-size: 16px;
+    color: whitesmoke;
+    outline: grey;
+    border: 1px solid grey;
+}
+
+.source_input{
+    background: black;
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    color: whitesmoke;
+    outline: grey;
+    border: 1px solid grey;
+}
