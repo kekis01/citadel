@@ -70,13 +70,14 @@ class AddPostForm(forms.ModelForm):
         fields = ['title', 'content', 'source', 'photo', 'preview', 'is_published', 'cat']
 
     title = forms.CharField(label="Заголовок", max_length=255, widget=forms.Textarea(
-        attrs={'rows': 1, 'cols': 172, 'class': 'title_input', 'placeholder': "Напишите название вашей статьи"}))
+        attrs={'rows': 1, 'cols': 200, 'class': 'title_input', 'placeholder': "Напишите название вашей статьи"}))
     content = forms.CharField(label="Текст",
                               widget=forms.Textarea(
-                                  attrs={'rows': 10, 'cols': 172, 'class': 'text_input',
-                                         'placeholder': "О чем расскажете?"}))
+                                  attrs={'rows': 10, 'cols': 200, 'class': 'text_input',
+                                         'placeholder': "О чем расскажете?"
+                                                        "(Используйте тег <p> для разделения текста)"}))
     source = forms.CharField(label="Источник", max_length=255,
-                             widget=forms.Textarea(attrs={'rows': 1, 'cols': 172, 'class': 'source_input',
+                             widget=forms.Textarea(attrs={'rows': 1, 'cols': 200, 'class': 'source_input',
                                                           'placeholder': "Укажите источник"}))
     photo = forms.ImageField(label="Фото", )
     preview = forms.ImageField(label="Превью", )

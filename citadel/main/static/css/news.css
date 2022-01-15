@@ -201,7 +201,7 @@ footer {
     display: inline-block;
 }
 
-/* Main*/
+/* Main */
 
 .site-main__news {
     color: whitesmoke;
@@ -355,6 +355,8 @@ footer {
     text-decoration: underline;
     cursor: pointer;
 }
-.create{
+.create {
     width: 100%;
+    margin-top: 40px;
+    font-size: 28px;
 }

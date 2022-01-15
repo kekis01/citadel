@@ -289,7 +289,7 @@ footer {
     color: #8D8D8D;
 }
 
-.info-for-article span {
+.span_right {
     margin-right: 40px;
 }
 
@@ -678,23 +678,57 @@ figcaption:hover {
     outline: none;
 }
 
-.liked{
+.liked {
     color: red;
 }
-.delete_com{
+
+.delete_com {
     background-color: transparent;
     overflow: hidden;
     border: none;
 }
-.delete_form{
+
+.delete_form {
     background: transparent;
     display: flex;
 }
-.x-mark{
+
+.x-mark {
     background-color: transparent;
     background-repeat: no-repeat;
     cursor: pointer;
     overflow: hidden;
     border: none;
     color: whitesmoke;
+    font-size: 18px;
+}
+
+.block_change {
+    display: block;
+    border: 1px solid whitesmoke;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.block_delete {
+    display: block;
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    font-weight: 600;
 }

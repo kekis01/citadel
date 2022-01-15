@@ -56,7 +56,6 @@ header {
     border: 1px solid red;
     background-color: transparent;
     color: red;
-    align-items: left;
     font-size: 20px;
     font-family: 'Montserrat', Arial, sans-serif;
     margin-right: 140px;
@@ -203,16 +202,23 @@ footer {
 
 /* Main*/
 
-.site-main__player {
-    height: 900px;
+.site-main{
     color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.main_content {
+    display: block;
+    border: 1px solid grey;
+    padding: 20px 50px;
+    font-size: 20px;
+    margin: 50px auto;
+}
+
 .publish {
-    margin-top: 50px;
+    margin-top: 30px;
     display: block;
     border: 1px solid red;
     background-color: transparent;
@@ -225,7 +231,6 @@ footer {
     width: 240px;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 160px;
 }
 .title_input{
     background: black;
