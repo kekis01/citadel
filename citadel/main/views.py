@@ -1,7 +1,7 @@
 from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
-from django.db.models import Count
+from django.db.models import Count, F
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.template.loader import render_to_string
 from django.views.generic.edit import UpdateView
@@ -76,9 +76,10 @@ def article(request, artid):
             form.author = request.user
             form.article_id = artid
             form.save()
-            return HttpResponseRedirect(reverse('article', args=[str(artid)]))
+            return HttpResponseRedirect(f"{(reverse('article', args=[str(artid)]))}#comments")
     elif request.user.is_authenticated:
         form = CommentForm
+        Article.objects.filter(id=artid).update(views=F("views")+1)
     else:
         form = CommentFormDisabled
     return render(request, f'home/article.html', {"article_id": artid, "comments": comment, "form": form, 'post': post})
