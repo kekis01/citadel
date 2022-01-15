@@ -76,7 +76,7 @@ def article(request, artid):
             form.author = request.user
             form.article_id = artid
             form.save()
-            return HttpResponseRedirect(reverse('article', args=[str(artid)]))
+            return HttpResponseRedirect(f"{(reverse('article', args=[str(artid)]))}#comments")
     elif request.user.is_authenticated:
         form = CommentForm
     else:
