@@ -300,7 +300,7 @@ footer {
 .text_box {
     display: flex;
     flex-direction: column;
-    width: 755px;
+    width: 725px;
     /*border: 1px solid blue;*/
     margin-left: -15px;
 }

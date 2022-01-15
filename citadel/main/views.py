@@ -65,7 +65,7 @@ def update_article(request, artid):
 
 
 def article(request, artid):
-    if artid < Article.objects.last().id:
+    if not Article.objects.filter(id=artid).exists():
         return render(request, 'home/page404.html')
     post = Article.objects.get(id=artid)
     comment = Comments.objects.filter(article_id=artid)

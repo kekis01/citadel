@@ -12,7 +12,7 @@ function hiddenClick(element_id) {
             if (i < event.length) {
                 event[i].style.display = "none";
             }
-            if (!csgo[i].classList.contains('dota-2')) {
+            if (i < dota2.length) {
                 dota2[i].style.display = "none";
             }
             if (i < lol.length) {
@@ -29,7 +29,7 @@ function hiddenClick(element_id) {
             if (i < event.length) {
                 event[i].style.display = "none";
             }
-            if (!dota2[i].classList.contains('cs-go')) {
+            if (i < csgo.length) {
                 csgo[i].style.display = "none";
             }
             if (i < lol.length) {
