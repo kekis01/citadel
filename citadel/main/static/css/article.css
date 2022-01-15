@@ -681,3 +681,20 @@ figcaption:hover {
 .liked{
     color: red;
 }
+.delete_com{
+    background-color: transparent;
+    overflow: hidden;
+    border: none;
+}
+.delete_form{
+    background: transparent;
+    display: flex;
+}
+.x-mark{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    color: whitesmoke;
+}

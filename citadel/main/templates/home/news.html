@@ -53,7 +53,7 @@
             <div class="site__main-content">
                  <div id="modify" class="site__title">ВСЕ НОВОСТИ</div>
                 {% if request.user.is_superuser %}
-                   <button type="button" class="block" onclick="window.location.href='{% url 'create_article' %}'">Создать новость</button>
+                   <button type="button" class="block create" onclick="window.location.href='{% url 'create_article' %}'">Создать новость</button>
                 {% endif %}
                 {% for article in articles %}
                 <div class="news_content {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}">
