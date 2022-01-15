@@ -82,7 +82,7 @@
                 {% for article in articles %}
                     {% if forloop.counter <= 8 %}
                 <figure class="gallery__item gallery__item--{{ article.id|add:"-1" }} {{ article.cat.get_tag }} all" id="{{ article.cat.get_tag }}" value="{{ article.cat.get_tag }}">
-                    <img src="{{ article.photo.url }}" class="gallery__img" alt="Image 1">
+                    <img src="{{ article.photo.url }}" class="gallery__img" alt="Image">
                     <div class="description">
                         <div class="date__description">{{ article.time_create }}</div>
                         <figcaption><a href="{% url 'article' article.id %}" >{{ article.title }}</a></figcaption>
@@ -104,19 +104,19 @@
             <div class="disciplines_title">ДИСЦИПЛИНЫ</div>
             <div class="main-content_disciplines">
                 <figure class="gallery__item_disciplines gallery__item--1">
-                    <img src="../../static/css/img/csgo.jpg" class="gallery_img" alt="Image 1">
+                    <img src="../../static/css/img/csgo.jpg" class="gallery_img_disciplines" alt="Image 1">
                     <div class="gallery_img-title">Counter-Strike: Global Offensive</div>
                 </figure>
                 <figure class="gallery__item_disciplines gallery__item--2">
-                    <img src="../../static/css/img/dota2.jpg" class="gallery_img" alt="Image 2">
+                    <img src="../../static/css/img/dota2.jpg" class="gallery_img_disciplines" alt="Image 2">
                     <div class="gallery_img-title">Dota 2</div>
                 </figure>
                 <figure class="gallery__item_disciplines gallery__item--3">
-                    <img src="../../static/css/img/fifa.png" class="gallery_img" alt="Image 3">
+                    <img src="../../static/css/img/fifa.png" class="gallery_img_disciplines" alt="Image 3">
                     <div class="gallery_img-title">FIFA</div>
                 </figure>
                 <figure class="gallery__item_disciplines gallery__item--4">
-                    <img src="../../static/css/img/league.jpg" class="gallery_img" alt="Image 4">
+                    <img src="../../static/css/img/league.jpg" class="gallery_img_disciplines" alt="Image 4">
                     <div class="gallery_img-title">League of Legends</div>
                 </figure>
         </section>
@@ -132,64 +132,64 @@
             </div>
             <div class="main-content_media">
                 <figure class="gallery__item gallery__item--1">
-                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 1">
-                    <div class="description">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img-media" alt="Image 1">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239056">CS:GO | UN4GiVE vs Valhalla (0-3) | Grand final | UrFU Esp...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">4535 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--2">
-                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 2">
-                    <div class="description">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img-media" alt="Image 2">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239052">CS:GO | CLAY vs Valhalla (0-2) | UrFU Esports League 2021 | b...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">1523 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--3">
-                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 3">
-                    <div class="description">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img-media" alt="Image 3">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239050">CS:GO | team103 vs un4give (0-2) | UrFU Esports League 2...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">1656 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--4">
-                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 4">
-                    <div class="description">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img-media" alt="Image 4">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239048">CS:GO | CLAY vs 10avgteam (2-0) | UrFU Esports League 2021 | ...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">2355 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--5">
-                    <img src="../../static/css/img/USL.jpg" class="gallery__img" alt="Image 5">
-                    <div class="description">
+                    <img src="../../static/css/img/USL.jpg" class="gallery__img-media" alt="Image 5">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239040">CS:GO | БГМУ vs Inference ESports (2-0) | UrFU Esports ...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">2120 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--6">
-                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 6">
-                    <div class="description">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img-media" alt="Image 6">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239064">Интервью игрока команды «Уральский гуль» по Dota 2...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">1200 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--7">
-                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 7">
-                    <div class="description">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img-media" alt="Image 7">
+                    <div class="description_media">
                         <figcaption><a href="https://vk.com/video-172154907_456239063">Интервью игрока команды Valhalla Михаила «wayzed...</a></figcaption>
                         <div class="date__description_media">7 месяцев назад</div>
                         <div class="views__description_media">1449 просмотров</div>
                     </div>
                   </figure>
                   <figure class="gallery__item gallery__item--8">
-                    <img src="../../static/css/img/photo.jpg" class="gallery__img" alt="Image 8">
-                    <div class="description">
+                    <img src="../../static/css/img/photo.jpg" class="gallery__img-media" alt="Image 8">
+                    <div class="description_media">
                         <figcaption><a href="#">Интервью с менеджером команды Valhalla</a></figcaption>
                         <div class="date__description_media">5 месяцев назад</div>
                         <div class="views__description_media">1689 просмотров</div>

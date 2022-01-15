@@ -250,6 +250,11 @@ footer {
     text-transform: uppercase;
 }
 
+.nav__main li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .nav__main a {
     text-decoration: none;
     color: whitesmoke;

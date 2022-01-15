@@ -312,16 +312,15 @@ footer {
     background: linear-gradient(145.55deg, #D70000 0%, #cc0202 0.15%, #FF0000 1486.02%), #FF0000;
 }
 
-
 .main-content {
     display: grid;
     /*border: 1px solid yellow;*/
     width: 100%;
-    height: 700px;
+    height: 720px;
     gap: 60px;
     column-gap: 40px;
     grid-template-columns: repeat(4, 380px);
-    grid-template-rows: repeat(2, 270px);
+    grid-template-rows: repeat(2, 290px);
     justify-content: center;
     margin-top: 42px;
 }
@@ -349,16 +348,17 @@ footer {
     padding: 10px;
     background-color: #0E0E10;
     width: 360px;
-    height: 60px;
-    overflow: hidden;
+    height: 80px;
 }
 
 .date__description {
+    background-color: #0E0E10;
     font-size: 12px;
     font-weight: normal;
     /*border: 1px solid yellow;*/
     display: flex;
     overflow: hidden;
+    width: 100%;
 }
 
 .description a {
@@ -437,7 +437,7 @@ footer {
     justify-content: center;
 }
 
-.gallery_img {
+.gallery_img_disciplines {
     width: 240px;
     height: 360px;
     object-fit: cover;
@@ -445,7 +445,7 @@ footer {
     transition: 0.2s;
 }
 
-.gallery_img:hover {
+.gallery_img_disciplines:hover {
     filter: grayscale(0);
     cursor: pointer;
     transform: scale(1.1);
@@ -483,7 +483,13 @@ footer {
     transition: 0.2s;
 }
 
-.gallery_img:hover + .gallery_img-title {
+.gallery_img_disciplines:hover + .gallery_img-title {
+    color: red;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.gallery_img-title:hover {
     color: red;
     cursor: pointer;
     transform: scale(1.1);
@@ -544,7 +550,16 @@ footer {
     margin-top: 42px;
 }
 
-.gallery__img {
+.description_media {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: #0E0E10;
+    width: 360px;
+    height: 60px;
+}
+
+.gallery__img-media {
     width: 380px;
     height: 210px;
     object-fit: cover;
@@ -561,15 +576,6 @@ footer {
     margin-left: 0;
 }
 
-.description {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 10px;
-    background-color: #0E0E10;
-    width: 360px;
-    height: 60px;
-}
-
 .date__description_media {
     font-size: 12px;
     font-weight: normal;
@@ -577,7 +583,7 @@ footer {
     float: left;
 }
 
-.description a {
+.description_media a {
     text-decoration: none;
     color: whitesmoke;
 }
